@@ -1,0 +1,23 @@
+.footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    padding: var(--spacing-medium) 5%;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer__copyright {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 650px) {
+    .footer {
+        padding: var(--spacing-small) 5%;
+    }
+    
+    .footer__copyright {
+        font-size: 0.8rem;
+    }
+}

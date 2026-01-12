@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Web Application Development Homework 2</title>
+    <link rel="icon" type="image/gif" href="../static/main/images/favicon.gif">
+    <link rel="stylesheet" href="../static/main/css/header.css">
+    <link rel="stylesheet" href="../static/main/css/navbar.css">
+    <link rel="stylesheet" href="../static/main/css/main.css">
+    <link rel="stylesheet" href="../static/main/css/footer.css">
+    <link rel="stylesheet" href="../static/main/css/feedback.css">
+</head>
+<body>
+    <!-- Header section with banner image -->
+    <header class="header">
+        <div class="header__banner"></div>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav class="nav">
+        <div class="nav__container">
+            <div class="nav__title">Web Application Development: Homework 2</div>
+            <button class="nav__menu-toggle" aria-label="Toggle navigation menu">
+                <span class="nav__menu-icon"></span>
+            </button>
+            <ul class="nav__links">
+                <li class="nav__item"><a href="/home.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="/projects.html" class="nav__link">Projects</a></li>
+                <li class="nav__item"><a href="/resume" class="nav__link">Resume</a></li>
+                <li class="nav__item">
+                    <a href="https://www.linkedin.com/in/tess-gonda/" class="nav__link nav__link--linkedin" target="_blank" rel="noopener noreferrer">
+                        <img src="../static/main/images/social-linkedin.png" alt="LinkedIn Profile" class="nav__linkedin-icon" loading="lazy">
+                        <span class="nav__linkedin-text">LinkedIn</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content area -->
+    <main class="main">
+        <!-- Page introduction -->
+        <section class="intro">
+            <div class="intro__content">
+                <h1 class="intro__title">My Projects</h1>
+                <p class="intro__text">Below is a list of projects I worked on in CSE 477!</p>
+            </div>
+        </section>
+
+        <!-- Piano project showcase -->
+        <section class="project">
+            <div class="project__content">
+                <a href="/piano.html" class="project__image-link">
+                    <img src="../static/main/images/piano.jpeg" alt="Interactive Piano Web Application" class="project__image" loading="lazy">
+                </a>
+                <div class="project__details">
+                    <h2 class="project__title">JavaScript Piano</h2>
+                    <p class="project__description">
+                        As part of my first Homework assignment in CSE 477, I developed an interactive piano built in pure HTML, CSS, and JavaScript. This tool (in addition to my webpage) highlights my ability to build beatiful and mobile-friendly front-end applications.
+                    </p>
+                    <a href="/piano.html" class="project__link">Click here to see and play! &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer__copyright">&copy; Tess Gonda</p>
+    </footer>
+
+    <!-- JavaScript for mobile menu toggle -->
+    <script src="../static/main/js/navigation.js" defer></script>
+
+    <!-- Feedback Toggle Button -->
+<button class="feedback-toggle-btn" id="feedbackToggleBtn" aria-label="Toggle feedback form">
+    <span class="feedback-icon">💬</span>
+  </button>
+  
+  <!-- Feedback Form Overlay -->
+  <div class="feedback-overlay" id="feedbackOverlay">
+    <div class="feedback-form-container">
+      <button class="feedback-close-btn" id="feedbackCloseBtn" aria-label="Close feedback form">&times;</button>
+      <h2 class="feedback-title">Send Feedback</h2>
+      <p class="feedback-subtitle">We'd love to hear your thoughts!</p>
+      
+      <form action="/processfeedback" method="POST" enctype="multipart/form-data" class="feedback-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your name">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email">
+        </div>
+        
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <textarea id="comment" name="comment" required placeholder="Share your feedback..." rows="5"></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+  
+  <script src="../static/main/js/feedback.js" defer></script>
+</body>
+</html>

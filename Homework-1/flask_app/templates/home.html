@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Web Application Development Homework 1</title>
+    <link rel="stylesheet" href="../static/main/css/header.css">
+    <link rel="stylesheet" href="../static/main/css/navbar.css">
+    <link rel="stylesheet" href="../static/main/css/main.css">
+    <link rel="stylesheet" href="../static/main/css/footer.css">
+</head>
+<body>
+    <!-- Header section with banner image -->
+    <header class="header">
+        <div class="header__banner"></div>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav class="nav">
+        <div class="nav__container">
+            <div class="nav__title">Web Application Development: Homework 1</div>
+            <button class="nav__menu-toggle" aria-label="Toggle navigation menu">
+                <span class="nav__menu-icon"></span>
+            </button>
+            <ul class="nav__links">
+                <li class="nav__item"><a href="/home.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="/projects.html" class="nav__link">Projects</a></li>
+                <li class="nav__item"><a href="../static/main/documents/resume.pdf" class="nav__link" target="_blank">Resume</a></li>
+                <li class="nav__item">
+                    <a href="https://www.linkedin.com/in/tess-gonda/" class="nav__link nav__link--linkedin" target="_blank" rel="noopener noreferrer">
+                        <img src="../static/main/images/social-linkedin.png" alt="LinkedIn Profile" class="nav__linkedin-icon" loading="lazy">
+                        <span class="nav__linkedin-text">LinkedIn</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content area -->
+    <main class="main">
+        <!-- About section with photo and description -->
+        <section class="about">
+            <div class="about__content">
+                <div class="about__photo-column">
+                    <img src="../static/main/images/profile-photo.jpg" alt="Profile photo" class="about__photo" loading="lazy">
+                </div>
+                <div class="about__text-column">
+                    <h1 class="about__name">Tess Gonda</h1>
+                    <div class="about__description">
+                        <p>Welcome to my professional webpage! I am Tess Gonda, a senior at Michigan State University pursuing a Bachelor of Science in Computer Science, with an expected graduation in May 2026. I am an aspiring software engineer with a strong background in cybersecurity and a passion for developing innovative solutions that enhance security workflows and user experiences.</p>
+
+                        <p>During my internship at Epson America, Inc., I gained hands-on experience in cybersecurity operations, where I analyzed email security telemetry, developed Python automation scripts for endpoint management, and performed SOC analysis to enhance security workflows. I've also contributed to machine learning model optimization as a US Rater at Telus Digital, where I evaluated and improved search algorithm performance.</p>
+                        
+                        <p>My technical expertise spans multiple programming languages including Python, C/C++, JavaScript, HTML, CSS, and SQL, along with ARM Assembly. I have a strong foundation in algorithms, data structures, object-oriented programming, and computer architecture. Beyond my professional work, I'm passionate about creative technology projects. I was proud to win the Best Use of FREE-WiLi application award at SpartaHack X for developing thereMINI, a wearable theremin that transforms hand motion into music.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fun fact section -->
+        <section class="fun-fact">
+            <h2 class="fun-fact__title">Fun Fact</h2>
+            <p class="fun-fact__text">When I'm not coding, I love playing video games! Some of my favorites include the Mother series, the Persona series, the Animal Crossing series, and the Pokémon series.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer__copyright">&copy; Tess Gonda</p>
+    </footer>
+
+    <!-- JavaScript for mobile menu toggle -->
+    <script src="../static/main/js/navigation.js" defer></script>
+</body>
+</html>

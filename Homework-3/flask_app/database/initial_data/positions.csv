@@ -1,0 +1,5 @@
+"position_id","inst_id","title","responsibilities","start_date","end_date"
+"1","1","Computer Science Student","Pursuing Bachelor of Science in Computer Science with focus on software engineering and cybersecurity. Coursework in algorithms, data structures, web development, and computer architecture.","2022-08-29",NULL
+"2","2","Cybersecurity Intern","Analyzed email security telemetry, developed Python automation scripts for endpoint management, and performed SOC analysis to enhance security workflows.","2025-06-15","2025-08-15"
+"3","3","US Rater","Evaluated and improved search algorithm performance for machine learning models, providing quality assessments to optimize results.","2024-07-31","2025-04-16"
+"4","4","Hackathon Participant","Developed thereMINI, an award-winning wearable theremin that transforms hand motion into music. Won Best Use of FREE-WiLi application award.","2025-02-01","2025-02-02"

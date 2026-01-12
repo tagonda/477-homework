@@ -1,0 +1,94 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='../static/main/css/resume.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+<div class="resume-container">
+    <h1 class="resume-title">Resume</h1>
+    
+    {% for inst_id, inst in resume_data.items() %}
+    <div class="institution">
+        <!-- Institution Header -->
+        <div class="institution-header">
+            <h2 class="institution-name">{{ inst['name'] }}</h2>
+            <div class="institution-location">
+                {% if inst['department'] and inst['department'] != 'NULL' %}
+                    {{ inst['department'] }}{% if inst['city'] %},{% endif %}
+                {% endif %}
+                {% if inst['city'] and inst['city'] != 'NULL' %}
+                    {{ inst['city'] }}{% if inst['state'] %}, {{ inst['state'] }}{% endif %}
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Positions -->
+        {% if inst['positions'] %}
+            {% for pos_id, pos in inst['positions'].items() %}
+            <div class="position">
+                <div class="position-header">
+                    <h3 class="position-title">{{ pos['title'] }}</h3>
+                    <div class="position-dates">
+                        {% if pos['start_date'] %}
+                            {{ pos['start_date'].strftime('%B %Y') if pos['start_date'] else '' }}
+                        {% endif %}
+                        - 
+                        {% if pos['end_date'] %}
+                            {{ pos['end_date'].strftime('%B %Y') }}
+                        {% else %}
+                            Present
+                        {% endif %}
+                    </div>
+                </div>
+                
+                {% if pos['responsibilities'] and pos['responsibilities'] != 'NULL' %}
+                <p class="position-responsibilities">{{ pos['responsibilities'] }}</p>
+                {% endif %}
+                
+                <!-- Experiences -->
+                {% if pos['experiences'] %}
+                    <div class="experiences">
+                        {% for exp_id, exp in pos['experiences'].items() %}
+                        <div class="experience">
+                            <h4 class="experience-name">
+                                {% if exp['hyperlink'] and exp['hyperlink'] != 'NULL' %}
+                                    <a href="{{ exp['hyperlink'] }}" target="_blank" rel="noopener noreferrer">{{ exp['name'] }}</a>
+                                {% else %}
+                                    {{ exp['name'] }}
+                                {% endif %}
+                            </h4>
+                            
+                            {% if exp['description'] and exp['description'] != 'NULL' %}
+                            <p class="experience-description">{{ exp['description'] }}</p>
+                            {% endif %}
+                            
+                            <!-- Skills -->
+                            {% if exp['skills'] %}
+                            <div class="skills">
+                                <span class="skills-label">Skills:</span>
+                                <ul class="skills-list">
+                                    {% for skill_id, skill in exp['skills'].items() %}
+                                    <li class="skill-item">
+                                        <span class="skill-name">{{ skill['name'] }}</span>
+                                        <span class="skill-level">({{ skill['skill_level'] }}/10)</span>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% endif %}
+        
+        {% if not loop.last %}
+        <hr class="institution-divider">
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

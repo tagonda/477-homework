@@ -1,0 +1,228 @@
+/* Resume Container */
+.resume-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-large) 5%;
+    background-color: #ffffff;
+}
+
+.resume-title {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-large);
+    font-size: 2.5rem;
+    border-bottom: 3px solid var(--color-accent);
+    padding-bottom: var(--spacing-small);
+}
+
+/* Institution Styles */
+.institution {
+    margin-bottom: var(--spacing-large);
+}
+
+.institution-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--spacing-small);
+    flex-wrap: wrap;
+}
+
+.institution-name {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    margin: 0;
+    flex: 1;
+}
+
+.institution-location {
+    color: var(--color-secondary);
+    font-size: 1rem;
+    font-style: italic;
+    text-align: right;
+}
+
+.institution-divider {
+    border: none;
+    border-top: 2px solid var(--color-background);
+    margin: var(--spacing-large) 0;
+}
+
+/* Position Styles */
+.position {
+    margin-left: var(--spacing-medium);
+    margin-bottom: var(--spacing-medium);
+}
+
+.position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--spacing-small);
+    flex-wrap: wrap;
+}
+
+.position-title {
+    color: var(--color-secondary);
+    font-size: 1.4rem;
+    margin: 0;
+    flex: 1;
+}
+
+.position-dates {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-left: var(--spacing-small);
+}
+
+.position-responsibilities {
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-small);
+    text-align: justify;
+}
+
+/* Experience Styles */
+.experiences {
+    margin-left: var(--spacing-medium);
+}
+
+.experience {
+    margin-bottom: var(--spacing-medium);
+    padding-left: var(--spacing-small);
+    border-left: 3px solid var(--color-accent);
+}
+
+.experience-name {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.experience-name a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.experience-name a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+
+.experience-description {
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    text-align: justify;
+}
+
+/* Skills Styles */
+.skills {
+    margin-top: 0.75rem;
+}
+
+.skills-label {
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-right: 0.5rem;
+}
+
+.skills-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+.skill-item {
+    background-color: var(--color-background);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.skill-name {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.skill-level {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 650px) {
+    .resume-container {
+        padding: var(--spacing-medium) 3%;
+    }
+    
+    .resume-title {
+        font-size: 2rem;
+    }
+    
+    .institution-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .institution-name {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .institution-location {
+        text-align: left;
+        font-size: 0.9rem;
+    }
+    
+    .position {
+        margin-left: var(--spacing-small);
+    }
+    
+    .position-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .position-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .position-dates {
+        margin-left: 0;
+        font-size: 0.9rem;
+    }
+    
+    .experiences {
+        margin-left: var(--spacing-small);
+    }
+    
+    .experience {
+        padding-left: 0.5rem;
+    }
+    
+    .experience-name {
+        font-size: 1rem;
+    }
+    
+    .skills-list {
+        gap: 0.4rem;
+    }
+    
+    .skill-item {
+        font-size: 0.85rem;
+        padding: 0.2rem 0.6rem;
+    }
+}

@@ -1,0 +1,90 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='piano/css/piano.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+<!-- Poem section -->
+<section class="piano-intro">
+    <p class="piano-intro__poem">
+        Behold piano great and old, it's master slumbers in far off cold,<br>
+        If you wish to see anew, call out to it - we see you.
+    </p>
+</section>
+
+<!-- Piano section -->
+<section class="piano-section">
+    <div class="piano-container">
+        <h2 class="piano__title">The Great Old One</h2>
+        
+        <!-- Piano keyboard -->
+        <div class="piano" id="piano">
+            <!-- White keys -->
+            <div class="key white-key" data-key="65" id="key-a">
+                <span class="key-label">A</span>
+            </div>
+            <div class="key white-key" data-key="83" id="key-s">
+                <span class="key-label">S</span>
+            </div>
+            <div class="key white-key" data-key="68" id="key-d">
+                <span class="key-label">D</span>
+            </div>
+            <div class="key white-key" data-key="70" id="key-f">
+                <span class="key-label">F</span>
+            </div>
+            <div class="key white-key" data-key="71" id="key-g">
+                <span class="key-label">G</span>
+            </div>
+            <div class="key white-key" data-key="72" id="key-h">
+                <span class="key-label">H</span>
+            </div>
+            <div class="key white-key" data-key="74" id="key-j">
+                <span class="key-label">J</span>
+            </div>
+            <div class="key white-key" data-key="75" id="key-k">
+                <span class="key-label">K</span>
+            </div>
+            <div class="key white-key" data-key="76" id="key-l">
+                <span class="key-label">L</span>
+            </div>
+            <div class="key white-key" data-key="186" id="key-semicolon">
+                <span class="key-label">;</span>
+            </div>
+
+            <!-- Black keys -->
+            <div class="key black-key" data-key="87" id="key-w" style="left: 7%;">
+                <span class="key-label">W</span>
+            </div>
+            <div class="key black-key" data-key="69" id="key-e" style="left: 17%;">
+                <span class="key-label">E</span>
+            </div>
+            <div class="key black-key" data-key="84" id="key-t" style="left: 37%;">
+                <span class="key-label">T</span>
+            </div>
+            <div class="key black-key" data-key="89" id="key-y" style="left: 47%;">
+                <span class="key-label">Y</span>
+            </div>
+            <div class="key black-key" data-key="85" id="key-u" style="left: 57%;">
+                <span class="key-label">U</span>
+            </div>
+            <div class="key black-key" data-key="79" id="key-o" style="left: 77%;">
+                <span class="key-label">O</span>
+            </div>
+            <div class="key black-key" data-key="80" id="key-p" style="left: 87%;">
+                <span class="key-label">P</span>
+            </div>
+        </div>
+
+        <!-- Hidden awakening overlay -->
+        <div class="awakening-overlay" id="awakeningOverlay">
+            <img src="{{ url_for('static', filename='piano/images/texture.jpeg') }}" alt="The Great Old One has awakened" class="awakening-image">
+            <p class="awakening-text">I have awoken.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ url_for('static', filename='piano/js/piano.js') }}"></script>
+{% endblock %}

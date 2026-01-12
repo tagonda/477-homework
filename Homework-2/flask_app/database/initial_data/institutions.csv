@@ -1,0 +1,5 @@
+"inst_id","type","name","department","address","city","state","zip"
+"1","Academia","Michigan State University","Computer Science",NULL,"East Lansing","Michigan","48824"
+"2","Industry","Epson America, Inc.","Information Security",NULL,"Los Alamitos","California","90720"
+"3","Industry","Telus Digital","AI Data Solutions",NULL,"Remote","Remote",NULL
+"4","Hackathon","SpartaHack X","Michigan State University",NULL,"East Lansing","Michigan","48824"

@@ -1,0 +1,242 @@
+/* Poem section */
+.piano-intro {
+  padding: var(--spacing-large) 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.piano-intro__poem {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Piano section */
+.piano-section {
+  padding: var(--spacing-large) 5%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.piano-container {
+  position: relative;
+  width: 1100px;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.piano__title {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  margin: 0;
+  font-size: var(--font-size-xlarge);
+  z-index: 3;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.piano__title--fading {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.95);
+}
+
+/* Piano keyboard */
+.piano {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-color: #2c2c2c;
+  border-radius: 10px 10px 0 0;
+  padding: 80px 20px 20px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Piano fading out effect */
+.piano--fading {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Key base styles */
+.key {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 0 0 5px 5px;
+  transition: all 0.1s ease;
+  user-select: none;
+}
+
+/* White keys */
+.white-key {
+  width: 100px;
+  height: 500px;
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+  border: 2px solid #000000;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 0 0 5px 5px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  margin-left: -5px;
+}
+
+.white-key:nth-of-type(1) { left: 1%; }
+.white-key:nth-of-type(2) { left: 11%; }
+.white-key:nth-of-type(3) { left: 21%; }
+.white-key:nth-of-type(4) { left: 31%; }
+.white-key:nth-of-type(5) { left: 41%; }
+.white-key:nth-of-type(6) { left: 51%; }
+.white-key:nth-of-type(7) { left: 61%; }
+.white-key:nth-of-type(8) { left: 71%; }
+.white-key:nth-of-type(9) { left: 81%; }
+.white-key:nth-of-type(10) { left: 91%; }
+
+/* Black keys */
+.black-key {
+  width: 60px;
+  height: 300px;
+  background: linear-gradient(to bottom, #000000 0%, #2c2c2c 100%);
+  border: 2px solid #000000;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  top: 80px;
+}
+
+/* Key labels */
+.key-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.white-key .key-label {
+  color: #000000;
+}
+
+.black-key .key-label {
+  color: #ffffff;
+  bottom: 5px;
+}
+
+/* Show ALL labels when hovering over ANY key */
+.piano:has(.key:hover) .key-label {
+  opacity: 1;
+}
+
+/* Key press effect */
+.key--pressed {
+  transform: translateY(3px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.white-key.key--pressed {
+  background: linear-gradient(to bottom, #e0e0e0 0%, #d0d0d0 100%);
+}
+
+.black-key.key--pressed {
+  background: linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+/* Awakening overlay */
+.awakening-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+  z-index: 10;
+}
+
+.awakening-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.awakening-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.awakening-text {
+  position: absolute;
+  top: 10%;
+  font-size: 2rem;
+  font-style: italic;
+  color: #ffffff;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  animation: fadeInText 2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInText {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 650px) {
+  .piano-intro__poem {
+      font-size: 1rem;
+  }
+  
+  .piano__title {
+      font-size: 1.5rem;
+      top: 20px;
+  }
+  
+  .piano {
+      height: 300px;
+      padding: 60px 20px 20px 20px;
+  }
+  
+  .white-key {
+      height: 160px;
+  }
+  
+  .black-key {
+      height: 100px;
+      bottom: 100px;
+  }
+  
+  .key-label {
+      font-size: 0.7rem;
+  }
+  
+  .awakening-text {
+      font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,9 @@
+"experience_id","position_id","name","description","hyperlink","start_date","end_date"
+"1","2","Email Security Analysis","Analyzed email security telemetry to identify threats and vulnerabilities in organizational email infrastructure.",NULL,"2025-06-15","2025-08-15"
+"2","2","Python Automation Development","Developed Python automation scripts for efficient endpoint management and security operations.",NULL,"2025-06-15","2025-08-15"
+"3","2","SOC Analysis","Performed Security Operations Center analysis to enhance security workflows and incident response procedures.",NULL,"2025-06-15","2025-08-15"
+"4","3","Algorithm Performance Evaluation","Evaluated search algorithm performance and provided feedback to improve machine learning model accuracy.","https://www.telusdigital.com","2024-07-31","2025-04-16"
+"5","4","thereMINI Wearable Theremin","Built a wearable theremin using Arduino and motion sensors that transforms hand motion into music. Won Best Use of FREE-WiLi application at SpartaHack X.","https://devpost.com/software/theremini","2025-02-01","2025-02-02"
+"6","1","CSE 477 - Web Application Architecture and Development","Fundamentals of World Wide Web (WWW) programming, including protocols, client-server interaction, markup languages, client- and server-side programming, databases, and remote procedure calls. Development of a WWW server and WWW sites with browser-based interfaces to remote databases.","https://www.cse.msu.edu","2025-08-25",NULL
+"7","1","CSE 431 - Algorithm Engineering","Algorithm analysis, design, implementation, and optimization for a broad range of problem categories including techniques to recognize and cope with intractable problems.",NULL,"2024-01-08","2024-05-03"
+"8","1","CSE 480 - Database Systems","Principles and technologies for database systems, algorithms, languages, and applications.",NULL,"2024-08-26","2024-12-13"

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSE 477 - Homework 3</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/header.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/footer.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/feedback.css') }}">
+  <link rel="icon" type="image/gif" href="{{ url_for('static', filename='main/images/favicon.gif') }}">
+  {% block extracss %}{% endblock %}
+</head>
+
+<body>
+    <article>
+    <!-- The header  -->
+    <header class="header">
+        <div class="header__banner"></div>
+    </header>
+
+    <!-- The navigation bar -->
+    <nav class="nav">
+      <div class="nav__container">
+        <!-- Display different title based on login status -->
+        {% if user == 'Unknown' %}
+        <div class="nav__title">CSE 477 - Homework 3</div>
+        {% else %}
+        <div class="nav__title">Logged in as: {{ user }}</div>
+        {% endif %}
+        
+        <button class="nav__menu-toggle" aria-label="Toggle navigation menu">
+            <span class="nav__menu-icon"></span>
+        </button>
+        
+        <ul class="nav__links">
+          <!-- CHANGED: Removed .html extensions to use Flask routes -->
+          <li class="nav__item"><a href="/home" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="/projects" class="nav__link">Projects</a></li>
+          <li class="nav__item"><a href="/resume" class="nav__link">Resume</a></li>
+          <li class="nav__item"><a href="/chat" class="nav__link">Chat</a></li>
+          
+          <!-- Conditional Login/Logout display -->
+          {% if user == 'Unknown' %}
+          <li class="nav__item"><a href="/login" class="nav__link">Login</a></li>
+          {% else %}
+          <li class="nav__item"><a href="/logout" class="nav__link">Logout</a></li>
+          {% endif %}
+          
+          <li class="nav__item">
+            <a href="https://www.linkedin.com/in/tess-gonda/" class="nav__link nav__link--linkedin" target="_blank" rel="noopener noreferrer">
+                <img src="{{ url_for('static', filename='main/images/social-linkedin.png') }}" alt="LinkedIn Profile" class="nav__linkedin-icon" loading="lazy">
+                <span class="nav__linkedin-text">LinkedIn</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- The main content  -->
+    <main class="main">
+      {% block maincontent %}{% endblock %}
+    </main>
+
+    <!-- Feedback Toggle Button -->
+    <button class="feedback-toggle-btn" id="feedbackToggleBtn" aria-label="Toggle feedback form">
+      <span class="feedback-icon">💬</span>
+    </button>
+
+    <!-- Feedback Form Overlay -->
+    <div class="feedback-overlay" id="feedbackOverlay">
+      <div class="feedback-form-container">
+        <button class="feedback-close-btn" id="feedbackCloseBtn" aria-label="Close feedback form">&times;</button>
+        <h2 class="feedback-title">Send Feedback</h2>
+        <p class="feedback-subtitle">I'd love to hear your thoughts!</p>
+        
+        <form action="/processfeedback" method="POST" enctype="multipart/form-data" class="feedback-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+          </div>
+          
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea id="comment" name="comment" required placeholder="Share your feedback..." rows="5"></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- The footer of the file -->
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2025 Tess Gonda</p>
+    </footer>
+
+    </article>
+  
+  <script src="{{ url_for('static', filename='main/js/navigation.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='main/js/feedback.js') }}" defer></script>
+  {% block extrajs %}{% endblock %}
+</body>
+
+</html>

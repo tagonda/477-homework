@@ -1,0 +1,196 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<style> 
+.chat-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.chat-title {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+#chat {
+    width: 100%;
+    height: 400px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+#chat p {
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 4px;
+    word-wrap: break-word;
+}
+
+.message-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#messageInput:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.send-button {
+    padding: 12px 24px;
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: var(--color-link-hover);
+}
+
+.leave-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.leave-button:hover {
+    background-color: #c0392b;
+}
+
+.chat-info {
+    text-align: center;
+    color: var(--color-secondary);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+</style>
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    var socket;
+    
+    $(document).ready(function(){
+        // Connect to the chat namespace
+        // Use location.protocol to handle both http and https
+        socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '/chat');
+        
+        // Handle connection
+        socket.on('connect', function() {
+            console.log('Connected to chat!');
+            socket.emit('joined', {});
+        });
+        
+        // Log connection errors
+        socket.on('connect_error', function(error) {
+            console.error('Connection error:', error);
+        });
+        
+        // Handle status messages (join/leave notifications)
+        socket.on('status', function(data) {
+            console.log('Status message received:', data);
+            addMessageToChat(data.msg, data.style);
+        });
+        
+        // Handle regular chat messages
+        socket.on('message', function(data) {
+            console.log('Chat message received:', data);
+            addMessageToChat(data.msg, data.style);
+        });
+    });
+    
+    // Function to add a message to the chat display
+    function addMessageToChat(message, style) {
+        let tag = document.createElement("p");
+        let text = document.createTextNode(message);
+        let element = document.getElementById("chat");
+        tag.appendChild(text);
+        tag.style.cssText = style;
+        element.appendChild(tag);
+        
+        // Auto-scroll to bottom
+        $('#chat').scrollTop($('#chat')[0].scrollHeight);
+    }
+    
+    // Function to send a message
+    function sendMessage() {
+        const messageInput = document.getElementById('messageInput');
+        const message = messageInput.value.trim();
+        
+        if (message !== '') {
+            // Emit the message to the server
+            socket.emit('text', {msg: message});
+            
+            // Clear the input field
+            messageInput.value = '';
+        }
+    }
+    
+    // Function to leave the chat
+    function leaveChat() {
+        // Emit leave event
+        socket.emit('left', {});
+        
+        // Redirect to home page after a short delay
+        setTimeout(function() {
+            window.location.href = '/home';
+        }, 500);
+    }
+    
+    // Allow Enter key to send messages
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('messageInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="chat-container">
+    <h1 class="chat-title">Live Chat</h1>
+    <p class="chat-info">Connected as: {{ user }}</p>
+    
+    <div id='chat'></div>
+    
+    <div class="message-input-container">
+        <input type="text" id="messageInput" placeholder="Enter your message here..." title="Type your chat message" />
+        <button class="send-button" onclick="sendMessage()">Send</button>
+    </div>
+    
+    <button class="leave-button" onclick="leaveChat()">Leave Chat</button>
+</div>
+{% endblock %}

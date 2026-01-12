@@ -1,0 +1,244 @@
+/* Main container */
+.main {
+    flex: 1;
+    width: 100%;
+}
+
+/* ===== HOME PAGE ===== */
+
+/* About section */
+.about {
+    padding: var(--spacing-large) 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 80vw;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 50vh;
+}
+
+.about__photo-column {
+    height: 50vh;
+    overflow: hidden;
+}
+
+.about__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.about__text-column {
+    padding: var(--spacing-medium);
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.about__name {
+    margin-bottom: var(--spacing-small);
+    color: var(--color-primary);
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.about__description {
+    text-align: justify;
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 0.5rem;
+}
+
+.about__description p {
+    margin-bottom: var(--spacing-small);
+}
+
+.about__description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Fun fact section */
+.fun-fact {
+    padding: var(--spacing-large) 5%;
+    background-color: var(--color-secondary);
+    color: #ffffff;
+    text-align: center;
+}
+
+.fun-fact__title {
+    margin-bottom: var(--spacing-small);
+    color: #ffffff;
+}
+
+.fun-fact__text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* ===== PROJECTS PAGE ===== */
+
+/* Introduction section */
+.intro {
+    padding: var(--spacing-large) 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.intro__content {
+    max-width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro__title {
+    margin-bottom: var(--spacing-small);
+    color: var(--color-primary);
+}
+
+.intro__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    color: var(--color-text);
+}
+
+/* Project showcase section */
+.project {
+    padding: var(--spacing-large) 5%;
+    background-color: #ffffff;
+}
+
+.project__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-large);
+    max-width: 80vw;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.project__image-link {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.project__image-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+}
+
+.project__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-speed) ease;
+}
+
+.project__image-link:hover .project__image {
+    transform: scale(1.05);
+}
+
+.project__details {
+    padding: var(--spacing-medium);
+}
+
+.project__title {
+    margin-bottom: var(--spacing-small);
+    color: var(--color-primary);
+}
+
+.project__description {
+    margin-bottom: var(--spacing-small);
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.project__link {
+    display: inline-block;
+    margin-top: var(--spacing-small);
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-accent);
+    color: #ffffff;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.project__link:hover {
+    background-color: var(--color-link-hover);
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media (max-width: 650px) {
+    /* Home page mobile */
+    .about__content {
+        grid-template-columns: 1fr;
+        max-height: none;
+        max-width: 80vw;
+    }
+    
+    .about__photo-column {
+        height: 50vh;
+    }
+    
+    .about__text-column {
+        overflow-y: visible;
+        padding: var(--spacing-small);
+    }
+    
+    .about__description {
+        overflow-y: visible;
+    }
+    
+    .fun-fact {
+        padding: var(--spacing-medium) 5%;
+    }
+    
+    .fun-fact__text {
+        font-size: 1rem;
+    }
+    
+    /* Projects page mobile */
+    .intro__content {
+        max-width: 80vw;
+    }
+    
+    .intro__text {
+        font-size: 1rem;
+    }
+    
+    .project {
+        padding: var(--spacing-medium) 5%;
+    }
+    
+    .project__content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-medium);
+        max-width: 80vw;
+    }
+    
+    .project__details {
+        padding: 0;
+    }
+}
