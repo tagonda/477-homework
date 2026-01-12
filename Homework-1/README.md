@@ -1,4 +1,4 @@
-# [Web Application Development](https://gitlab.msu.edu/cse477-fall-2025/course-materials/): Homework 1
+# Web Application Development: Homework 1
 
 
 
@@ -9,47 +9,6 @@ The purpose of this assignment is to provide with hands-on experience with front
 1. How to write and structure HTML documents.
 2. Best practices for styling reactive HTML documents using CSS.
 3. Building interactive client-side applications using HTML, CSS, and Javascript.
-
-
-
-## Before you begin
-
-Before you begin this assignment, please complete the following steps.
-
-
-
-##### 1. Update your local copy of the Course Materials Repository
-
-Navigate to the <u>course materials repository</u> on your local machine, and pull any updates by running the following command from the terminal:
-
-```bash
-git pull https://gitlab.msu.edu/cse477-fall-2025/course-materials.git
-```
-
-
-
-##### 2. Compose the Homework container locally 
-
-1. Navigate to the `Homework-1` directory of your <u>Personal Course Repository</u> (that's the one with the same name as your netID). 
-
-2. Use `docker-compose` to host the web application locally by executing the following command from you terminal:
-
-   ```bash
-   docker-compose -f docker-compose.yml -p hw1-container up
-   ```
-
-3. Visit [http://127.0.0.1:8080/home.html](http://127.0.0.1:8080/home.html) to ensure the template is running.
-
-
-
-##### 3. Explore the Template subdirectories
-
-In this assignment, you will modify the web application template provided in `Homework-1/flask-app/`. More specifically, you will author a number of `HTML`, `CSS`, and `Javascript` files that will fulfill the assignment criteria. All of your files for this assignment should be contained in:
-
-* `/templates` : where you will store your `.html` files 
-* `/static` : where you will store your `.css`, `.js` and other files.
-
-As you explore these directories, you will notice some images, and template files you can will work with for the assignment; we'll call out these files in the assignment requirements, below.
 
 
 
@@ -150,58 +109,3 @@ const sound = {65:"http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav",
 * <u>In Javascript:</u> When the sequence of keys "weseeyou" is typed on your piano it should awaken the great old one! More specifically, (1) your piano should gradually fade away and be replaced by the [image of the great old one](flask_app/static/piano/images/texture.jpeg), (2) you should play the following [creepy audio](https://orangefreesounds.com/wp-content/uploads/2020/09/Creepy-piano-sound-effect.mp3?_=1) and (3) the piano should no longer respond to key presses; at the end, the piano should look something like this:
 
 ![piano-4](documentation/piano-4.png)
-
-
-
-## Submitting your assignment
-
-##### Submit Homework 1 Code
-
-1. Submit your assignment by navigating to the main directory of your <u>Personal Course Repository</u> and Pushing your repo to Gitlab; you can do this by running the following commands:
-
-   ```bash
-   git add .
-   git commit -m 'submitting Homework 1'
-   git push
-   ```
-
-2. You have now submitted Homework 1's code; you can run the same commands to re-submit anytime before the deadline. Please check that your submission was successfully uploaded by navigating to the corresponding directory in Personal Course Repository online.
-
-
-
-**Deploy your web application to Google Cloud**
-
-Deploy your Dockerized App to Google Cloud by running the commands below from the Homework-1 directory.
-
-```bash
-gcloud builds submit --tag gcr.io/cse477-fall-2025/homework
-gcloud run deploy --image gcr.io/cse477-fall-2025/homework --platform managed
-```
-
-* When prompted for service name, press enter.
-* When prompted for the `region` choose `us-central1`
-* When prompted regarding `unauthenticated invocations` choose  `y`
-
-when the application has completed deploying, it will provide provide an output like this:
-
-```bash
-Deploying container to Cloud Run service [homework] in project [cse477-fall-2025] region [us-central1]
-✓ Deploying new service... Done.                                            
-  ✓ Creating Revision...                                                    
-  ✓ Routing traffic...                                                      
-  ✓ Setting IAM Policy...                                                   
-Done.                                                                       
-Service [homework] revision [homework-00001-qol] has been deployed and is serving 100 percent of traffic.
-Service URL: https://homework-z7tywrhkpa-uc.a.run.app
-```
-
- The last line in the above output is the <u>Service URL</u>; You can visit the <u>Service URL</u> above to see a live version of your web application. 
-
-
-
-##### Submit Homework 1 Survey:
-
-[Submit the Service URL for your live web application in this Google Form](https://docs.google.com/forms/d/e/1FAIpQLSeEo-Vdb2Wji5wrekkocBIc3yDXFkMI9O28j0E5BDmxiv6BAQ/viewform?usp=dialog
-
-
-
